@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div data-type='checkboxWithQuantity' data-selection='choix1' data-value='200' class='wrap'>
+        <input class='input' id='1' type='checkbox' />
+        <label for='1'>Choix 1 (200€)</label>
+        <ul>
+          <li class='decrease'>-</li>
+          <li><input class='quantity' value='0' type='number' data-prev='1' min="0" max="10"/></li>
+          <li class='increase'>+</li>
+        </ul>
+      </div>
+      
+      <div data-type='checkboxWithQuantity' data-selection='choix2' data-value='300' class='wrap'>
+        <input class='input' id='2' type='checkbox' />
+        <label for='2'>Choix 2 (300€)</label>
+        <ul>
+          <li class='decrease'>-</li>
+          <li><input class='quantity' value='0' type='number' data-prev='1' min="0" max="10"/></li>
+          <li class='increase'>+</li>
+        </ul>
+      </div>
+      
+      <div data-type='checkboxWithQuantity' data-selection='choix3' data-value='400' class='wrap'>
+        <input class='input'  id='3' type='checkbox' />
+        <label for='3'>Choix 3 (400€)</label>
+        <ul>
+          <li class='decrease'>-</li>
+          <li><input class='quantity' value='0' type='number' data-prev='1' value min="0" max="10"/></li>
+          <li class='increase'>+</li>
+        </ul>
+      </div>
+      
+      <div data-type='checkboxNoQuantity' data-selection='choix4' data-value='100' class='wrap'>
+        <input class='input' id='4' type='checkbox' />
+        <label for='4'>Choix 4 (100€)</label>
+      </div>
+      
+      <div data-type='checkboxNoQuantity' data-selection='choix5' data-value='150' class='wrap'>
+        <input class='input' id='5' type='checkbox' />
+        <label for='5'>Choix 5 (150€)</label>
+      </div>
+      <br>
+      <br>
+      <div>Total: <span id='amount'>100</span></div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="popup.js"></script>
+</body>
+</html>
