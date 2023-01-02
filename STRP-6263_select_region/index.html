@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .stl_select-wrapper,  #valueBanqueNew {
+    margin: auto;
+    max-width: 350px;
+    width: 100%;
+}
+
+.stl_select-wrapper>p {
+    margin-bottom: 0.5rem;
+}
+
+#formSelectRegion {
+  position: relative;
+}
+
+#picto_fleche {
+    position: absolute;
+    right: 10px;
+    color: #545454;  
+    z-index: 1000;
+    bottom: 15px;
+  }
+
+.stl_select {
+    font-family: "Source Sans Pro";
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #010035;
+    margin-bottom: 1rem;
+    color: rgb(116, 115, 116);
+    cursor: pointer;
+    padding: 0 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1rem);
+    height: 3rem;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.stl_select option {
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.rotate {
+    transition: transform 0.3s ease 0s, color 0.3s ease 0s;
+    transform: rotate(180deg);
+}
+
+@media only screen and (min-width: 1024px) {
+
+
+  .stl_select {
+    margin-bottom: 1.5rem;
+}
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="stl_select-wrapper">
+    <p>Sélectionnez une marque régionale</p>
+    
+    <form action id="formSelectRegion">
+      <span id="picto_fleche" class=""><svg aria-hidden="true" focusable="false" height="11" viewBox="0 0 17 11" width="17">
+      <path d="M15.653 1.427l-7 8M1.653 1.427l7 8" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+    </svg></span>
+      <select name="banques" id="valueBanqueNew" class="stl_select">
+      
+      <option value="Marques">Séléctionner votre région</option>
+      <option value="Société Générale">SG Société Générale Paris</option>
+      <option value="Société Générale Corse">SG Société Générale (Corse)</option>	
+      <option value="Grand Ouest">SG Grand Ouest</option>
+      <option value="Sud Ouest">SG Sud Ouest</option>
+      <option value="Courtois">SG Courtois</option>
+      <option value="SMC">SG SMC</option>
+      <option value="Auvergne Rhône Alpes">SG Auvergne Rhône Alpes</option>
+      <option value="Laydernier">SG Laydernier</option>
+      <option value="Grand Est">SG Grand Est</option>
+      <option value="Crédit du Nord">SG Crédit du Nord</option>
+      <option value="Tarneaud">SG Tarneaud</option>
+      				
+    </select>
+    </form>
+    <div>
+      <p id="mail"></p>
+      <p id="adresse"></p>
+      <p id="telephone"></p>
+    </div>
+  </div>
+  
+  <script>
+    var arrayBanque = [
+    {
+			nom: "Grand Est",
+			mail: "SG-GrandEst.Reclamations@socgen.com",
+			adresse :"SG SOCIETE GENERALE<br> Service Relations Clientèle<br> TSA 62294<br> 75427 PARIS CEDEX 09",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Crédit du Nord",
+			mail: "SG-CreditduNord.Reclamations@socgen.com",
+      adresse :"SG CREDIT DU NORD<br> Service Relation Clientèle<br> TSA 98064<br> 59049 LILLE CEDEX",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Société Générale",
+      mail: "SG-SocieteGenerale.Reclamations@socgen.com",
+      adresse :"SG SOCIETE GENERALE<br> Service Relations Clientèle<br> TSA 62294<br> 75427 PARIS CEDEX 09",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Grand Ouest",
+      mail: "SG-GrandOuest.Reclamations@socgen.com",
+      adresse :"SG GRAND OUEST<br> Service Relations Clientèle<br> TSA 41774<br> 35517 CESSON SEVIGNE CEDEX",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Tarneaud",
+      mail: "SG-Tarneaud.Reclamations@socgen.com",
+      adresse :"SG TARNEAUD<br> Service Relation Clientèle<br> TSA 90001<br> 87011 LIMOGES CEDEX",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Auvergne Rhône Alpes",
+      mail: "SG-AuvergneRhoneAlpes.Reclamations@socgen.com",
+      adresse :"SG AUVERGNE RHONE ALPES<br> Service Relation Clientèle<br> TSA 17050<br> 69307 LYON CEDEX 07",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Laydernier",
+      mail: "SG-Laydernier.Reclamations@socgen.com",
+      adresse :"SG LAYDERNIER<br> Service Relation Clientèle<br> TSA 68000<br> 74059 ANNECY CEDEX",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Sud Ouest",
+      mail: "SG-SudOuest.Reclamations@socgen.com ",
+      adresse :"SG SUD-OUEST<br> Service Relation Clientèle<br> TSA 30001<br> 33077 BORDEAUX CEDEX",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "Courtois",
+      mail: "SG-Courtois.Reclamations@socgen.com",
+      adresse :"SG COURTOIS<br> Service Relation Clientèle<br> TSA 80224<br> 31689 TOULOUSE CEDEX 6",
+			telephone :"0 806 800 148",
+		},
+		{
+			nom: "SMC",
+      mail: "SG-SMC.Reclamations@socgen.com",
+      adresse :"SG SMC<br> Service Relation Clientèle<br> TSA 91353<br> 13281 MARSEILLE CEDEX 06",
+			telephone :"0 806 800 148",
+		}
+		,
+		{
+			nom: "Société Générale Corse",
+      mail: "SG-SocieteGenerale.Reclamations@socgen.com",
+      adresse :"SG SOCIETE GENERALE<br> Service Relation Clientèle<br> TSA 50001<br> 20297 BASTIA CEDEX",
+			telephone :"0 806 800 148",
+		}
+    ]
+
+    var form = document.getElementById('formSelectRegion');
+    var select = form.elements['valueBanqueNew'];
+    var selectMail = document.getElementById('mail')
+    var selectAdr = document.getElementById('adresse')
+    var selectTel = document.getElementById('telephone')
+    var picto = document.getElementById("picto_fleche");
+    var mail = "";
+    var adresse = "";
+    var telephone = "";
+
+    var injectContenu = function (nom) {
+		var infoBanque = arrayBanque.find(function(element) { 
+      return element.nom === nom
+    } );
+		selectMail.innerHTML = infoBanque["mail"];
+		selectAdr.innerHTML = infoBanque["adresse"];
+		selectTel.innerHTML = infoBanque["telephone"];
+
+	}
+
+  select.addEventListener('click', function () {
+      picto.classList.toggle("rotate");
+  }, false);
+    select.onchange = function(e) {
+      var target = e.currentTarget;
+
+      var valSelect = target.options[target.selectedIndex].value;
+      
+		switch (valSelect) {
+
+      case "Marques":
+        selectMail.innerHTML = "";
+        selectAdr.innerHTML = "";
+        selectTel.innerHTML = "";
+        break;
+
+      case "Société Générale":
+        injectContenu(valSelect)
+        break;
+
+      case "Crédit du Nord":
+        injectContenu(valSelect)
+        break;
+
+      case "Grand Ouest":
+        injectContenu(valSelect)
+        break;
+
+      case "Grand Est":
+        injectContenu(valSelect)
+        break;
+
+      case "Tarneaud":
+        injectContenu(valSelect)
+        break;
+
+      case "Auvergne Rhône Alpes":
+        injectContenu(valSelect)
+        break;
+
+      case "Laydernier":
+        injectContenu(valSelect)
+        break;
+
+      case "Sud Ouest":
+        injectContenu(valSelect)
+        break;
+
+      case "Courtois":
+        injectContenu(valSelect)
+        break;
+
+      case "SMC":
+        injectContenu(valSelect)
+        break;
+
+      case "Société Générale Corse":
+        injectContenu(valSelect)
+        break;
+
+      };
+    }
+
+    
+    
+  </script>
+</body>
+</html>
