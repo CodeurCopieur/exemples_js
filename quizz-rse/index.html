@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSE QUIZZ</title>
+</head>
+<body>
+  <a href="#modal1" id="clic" class="stl_btn stl_btn--secondarylight stl_btn--md" role="link" onclick="bddfTms.trackEvent(this,'click',{event_name : 'clic-sur-demarrer-le-quizz'});">
+    <span>Démarrer le quizz</span>
+  </a>
+  
+  
+  <!-- Quizz -->
+     <aside id="modal1" class="modal" role="dialog" aria-labelledby="popinquizz" aria-modal="false">
+      <div class="modal-wrapper js-modal-stop">
+          <div class="container_story">
+              <header class="header_pagination">
+                  <div class="header_list">
+                      <span class="progress-step progress-step-active"></span>
+                      <span class="progress-step"></span>
+                      <span class="progress-step"></span>
+                      <span class="progress-step"></span>
+                      <span class="progress-step"></span>
+                  </div>
+                  <div class="header_close" id="headerClose">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M14.6087 0L16 1.3913L9.391 8L16 14.6087L14.6087 16L8 9.391L1.3913 16L0 14.6087L6.609 8L0 1.3913L1.3913 0L8 6.609L14.6087 0Z"
+                              fill="white" />
+                      </svg>
+                  </div>
+              </header>
+              <!-- <div> -->
+              <div class="slide-step slide-step-active">
+  
+                  <div class="slide-wrap_cover">
+                      <img src="/static/Particuliers/rcwb/assets/img/RSE-hub/logo.png" alt="">
+                  </div>
+  
+                  <div>
+                      <p class="slide-text_intro">Comme sur beaucoup de sujets, <br />on se fait vite des idées sans trop
+                          savoir.</p>
+  
+                      <div class="slide-wrap_btn">
+                          <button class="btn-next">Découvrir</button>
+                      </div>
+                  </div>
+  
+              </div>
+              <div class="slide-step slide-question">
+                  <div class="slide-step_wrap">
+                      <div class="slide-step_wrap-content"></div>
+                      <div class="slide-wrap_btn">
+                          <button class="btn-next slide-step_btn-none" disabled>Suivant</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="slide-step slide-question">
+                  <div class="slide-step_wrap">
+                      <div class="slide-step_wrap-content"></div>
+                      <div class="slide-wrap_btn">
+                          <button class="btn-next slide-step_btn-none" disabled>Suivant</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="slide-step slide-question">
+                  <div class="slide-step_wrap">
+                      <div class="slide-step_wrap-content"></div>
+                      <div class="slide-wrap_btn">
+                          <button class="btn-next slide-step_btn-none" disabled>Suivant</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="slide-step slide-question">
+                  <div class="slide-step_wrap">
+                      <div class="slide-step_wrap-content"></div>
+                      <div class="slide-wrap_btn">
+                          <button class="btn-next slide-step_btn-none closeModal" disabled>Terminer</button>
+                      </div>
+                  </div>
+              </div>
+              <!-- </div> -->
+          </div>
+      </div>
+  </aside>
+  
+  <!-- css quizz -->
+  <style>
+      .container_story>div:nth-child(2) {
+          background-image: url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille2_rse.svg),
+              url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille2_rse.svg),
+              url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille2_rse.svg);
+          background-repeat: no-repeat;
+          background-position: top 30% left -80px, bottom -75px left -25px, top 50% right -65px;
+      }
+  
+      .container_story>div:nth-child(3) {
+          background-image: url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille2_rse.svg);
+          background-repeat: no-repeat;
+          background-position: top 80px left -72px;
+      }
+  
+      .container_story>div:nth-child(4) {
+          background-image: url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille2_rse.svg),
+              url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille_rse.svg);
+          background-repeat: no-repeat;
+          background-position: bottom -85px left -45px, top 100px right -65px;
+      }
+  
+      .container_story>div:nth-child(5) {
+          background-image: url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille2_rse.svg),
+              url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille_rse.svg);
+          background-repeat: no-repeat;
+          background-position: bottom -26px left -71px, bottom 13% right -65px;
+      }
+  
+      .container_story>div:nth-child(6) {
+          background-image: url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille_rse.svg),
+              url(/static/Particuliers/rcwb/assets/img/RSE-hub/feuille2_rse.svg);
+          background-repeat: no-repeat;
+          background-position: bottom -81px left -30px, top 30px left -72px;
+      }
+  
+      #modal1 {
+          width: 100%;
+          max-width: 100%;
+      }
+  
+      #clic span {
+          pointer-events: none;
+      }
+  
+      /** reset */
+      button {
+          border: none;
+          outline: none;
+      }
+  
+      button {
+          background-color: #E2010B;
+          color: #fff;
+          padding: 1rem 1.5rem;
+          border-radius: 1.75rem;
+          cursor: pointer;
+      }
+  
+      .btn-next {
+          width: 60%;
+      }
+  
+      /* animation */
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+              visibility: hidden;
+              z-index: 0;
+          }
+  
+          to {
+              opacity: 1;
+              visibility: visible;
+              z-index: 5000;
+          }
+      }
+  
+      @keyframes fadeOut {
+          from {
+              opacity: 1;
+              visibility: visible;
+          }
+  
+          to {
+              opacity: 0;
+              visibility: hidden;
+          }
+      }
+  
+      @keyframes slideRight {
+          from {
+              transform: translateX(-3.125rem);
+          }
+  
+          to {
+              transform: translateX(0rem);
+          }
+      }
+  
+      @keyframes slideLeft {
+          from {
+              transform: translateX(0rem);
+          }
+  
+          to {
+              transform: translateX(-3.125rem);
+          }
+      }
+  
+      @keyframes animate {
+          from {
+              transform: scaleX(0);
+              opacity: 0;
+          }
+  
+          to {
+              transform: scaleX(1);
+              opacity: 1;
+          }
+      }
+  
+      .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #010035a3;
+          animation: fadeIn .3s both;
+      }
+  
+      .modal-wrapper {
+          animation: slideRight 3s both;
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+      }
+  
+      .modal[aria-modal="false"] {
+          animation-name: fadeOut;
+          left: -100rem;
+      }
+  
+      .modal[aria-hidden="true"] {
+          animation-name: fadeIn;
+          left: 0;
+      }
+  
+      .modal[aria-hidden="true"] .modal-wrapper {
+          animation-name: slideLeft;
+      }
+  
+      .container_story {
+          width: 100%;
+          height: 100%;
+          background: #003136;
+          position: relative;
+      }
+  
+      .header_pagination {
+          /* position: absolute; */
+          top: 0;
+          display: grid;
+          grid-template-columns: 2fr 1.25rem;
+          gap: 0 16px;
+          padding: 16px;
+          overflow: hidden;
+      }
+  
+      .header_list {
+          display: grid;
+          grid-template-columns: repeat(5, MinMax(1.25rem, 9.375rem));
+          gap: 0 16px;
+          align-items: center;
+      }
+  
+      .progress-step {
+          height: .125rem;
+          background-color: rgba(255, 255, 255, 0.4);
+          position: relative;
+      }
+  
+      .progress-step::before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          background-color: #fff;
+          width: 0%;
+          transform-origin: 0%;
+          transform: scaleX(0);
+          transition: transform 1000ms cubic-bezier(0.32, 0, 0.07, 1);
+      }
+  
+      .progress-step.progress-step-active::before {
+          width: 100%;
+          transform-origin: 0% 50%;
+          transform: scaleX(1);
+      }
+  
+      .header_close {
+          cursor: pointer;
+          line-height: 0;
+          text-align: center;
+      }
+  
+      .slide-step {
+          display: none;
+          /* height: 100%; */
+          height: calc(100% - 48px);
+          padding: 0 1.5rem;
+      }
+  
+      .slide-step_wrap {
+          /* height: 80%; */
+          height: calc(100% - 2rem);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+  
+      .slide-step-active {
+          display: block;
+          /* flex-direction: column;
+  justify-content: center; */
+      }
+  
+      .slide-step_wrap-content {
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+      }
+  
+      .slide-step_wrap-content .slide-step_number {
+          margin: 0 auto 1rem;
+          background: #1DC2B1;
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 800;
+          font-size: 1.5rem;
+      }
+  
+      .slide-step_wrap-content h2 {
+          font-size: 1rem;
+          line-height: 1.25rem;
+          text-align: center;
+          margin: 0 0 1rem;
+          font-family: "Montserrat", arial, sans-serif;
+      }
+  
+      .slide-step_wrap-content h2 br {
+          display: none;
+      }
+  
+  
+      .slide-step_wrap-content p {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          overflow-y: auto;
+      }
+  
+      .slide-step_wrap-content ul {
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          padding: 0;
+          margin: 0 0 2.5rem;
+      }
+  
+      .slide-step_wrap-content ul li {
+          padding: 0.5rem 2.5rem;
+          background-color: #E2010B;
+          border-radius: 1.75rem;
+          cursor: pointer;
+          position: relative;
+      }
+  
+      .slide-step_wrap-content ul li:nth-child(1) {
+          margin-right: .5rem;
+      }
+  
+      .slide-step_wrap-content ul li:nth-child(2) {
+          margin-left: .5rem;
+      }
+  
+      .slide-step_wrap-content ul .slide-step_itemTrue {
+          background-color: #29873D;
+      }
+  
+      .slide-step_wrap-content ul .slide-step_itemNoSelected {
+          opacity: .7;
+      }
+  
+      .slide-step_wrap-content ul[data-click="true"] li {
+          position: relative;
+      }
+  
+      .slide-step_wrap-content ul[data-click="true"] li::before {
+          content: "";
+          position: absolute;
+          width: 1.25rem;
+          height: 1.25rem;
+          left: .75rem;
+          top: 50%;
+          transform: translateY(-50%);
+          background-size: cover;
+      }
+  
+      .slide-step_wrap-content ul[data-click="true"] li[data-rep="true"]::before {
+          background-image: url('/static/Particuliers/rcwb/assets/img/RSE-hub/vrai.svg');
+      }
+  
+      .slide-step_wrap-content ul[data-click="true"] li[data-rep="false"]::before {
+          background-image: url('/static/Particuliers/rcwb/assets/img/RSE-hub/faux.svg');
+      }
+  
+      .slide-step_wrap-content span {
+          margin-left: auto;
+          margin-right: auto;
+          height: 1rem;
+          font-weight: 800;
+          font-size: 1rem;
+          margin-bottom: 1rem;
+      }
+  
+      .slide-step_wrap-content a p {
+          font-size: .775rem;
+          line-height: 1.5;
+          display: flex;
+          margin-bottom: 1rem;
+          min-height: 200px;
+      }
+  
+      .slide-wrap_cover {
+          padding-top: 75%;
+          /* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
+          position: relative;
+      }
+  
+      .slide-wrap_cover img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          bottom: 50%;
+          right: 50%;
+          transform: translate(-50%, -50%);
+          display: block;
+      }
+  
+      .slide-text_intro {
+          color: #fff;
+          text-align: center;
+          margin-bottom: 2.5rem;
+      }
+  
+      .slide-wrap_btn {
+          text-align: center;
+      }
+  
+      .slide-step_btn-none {
+          opacity: 0;
+          visibility: hidden;
+          transition: all .5s;
+      }
+  
+      @media screen and (min-width: 48rem) {
+          .container_story {
+              width: 375px;
+              max-height: 667px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 50000;
+              background: #003136;
+          }
+  
+          .slide-step_number {
+              width: 3rem;
+              height: 3rem;
+              margin-bottom: 2rem;
+          }
+  
+          .slide-text_intro {
+              font-size: 1.125rem;
+              line-height: 1.5;
+          }
+  
+          /* .slide-step_wrap-content {
+    margin-bottom: 1.5rem;
+  } */
+          .slide-step_wrap-content h2 {
+              margin: 0 0 1.5rem;
+          }
+  
+          .slide-step_wrap-content p {
+              margin: 0;
+          }
+  
+          .slide-step_wrap-content ul li {
+              padding: 0.8125rem 2.5rem;
+          }
+  
+          button {
+              padding: .8125rem 1.25rem;
+          }
+  
+          .slide-step_wrap-content h2 br {
+              display: block;
+          }
+      }
+  
+      @media (max-width: 22.5rem) {
+          .slide-step_wrap-content p {
+              font-size: .891rem;
+          }
+      }
+  </style>
+  
+  <!-- js quizz -->
+  <script>
+      var slideSteps = Array.prototype.slice.call(document.querySelectorAll('.slide-step'));
+      var progressSteps = Array.prototype.slice.call(document.querySelectorAll('.progress-step'));
+      var nextBtns = Array.prototype.slice.call(document.querySelectorAll('.btn-next'));
+      var open = document.getElementById('clic');
+      var closeBtn = document.querySelector('.closeModal');
+      var headerClose = document.querySelector('#headerClose');
+      var slideStepsNum = 0;
+      var clickCount = 0;
+  
+      open.addEventListener('click', openModal)
+      closeBtn.addEventListener('click', closeModal)
+      headerClose.addEventListener('click', hiddenModal)
+  
+      function hiddenModal() {
+          modal = document.getElementById('modal1');
+          modal.setAttribute('aria-modal', 'false');
+      }
+  
+      function openModal(e) {
+  
+          var target = e.target;
+          var anchor = target.getAttribute('href');
+          var s = anchor.substr(anchor.indexOf("#"));
+  
+          var modal = document.querySelector(s);
+          modal.setAttribute('aria-modal', 'true');
+      }
+  
+      function closeModal() {
+          hiddenModal()
+          nextBtns.forEach(function (btn, i) {
+              if (i > 0) {
+                  btn.classList.add('slide-step_btn-none');
+                  btn.disabled = true;
+              }
+          })
+  
+          updateSlideSteps(slideStepsNum);
+          updateProgressStep(slideStepsNum);
+          callback(slideStepsNum)
+  
+          allWrapContent = document.querySelectorAll('.slide-step_wrap-content');
+  
+          allWrapContent.forEach(function name(wrap, i) {
+              wrap.innerHTML = ''
+          })
+      }
+  
+  
+      for (let index = 0; index < nextBtns.length; index++) {
+          const element = nextBtns[index];
+  
+          // click sur un lien +1 à la variable 'slideStepsNum' et on déclenche la fonction updateFormSteps() et updateProgressBar()
+          if (element) {
+              element.addEventListener('click', function () {
+  
+                  if (index < 4) {
+                      slideStepsNum++;
+                  } else {
+                      slideStepsNum = 0;
+                  }
+  
+                  if (slideStepsNum < 5) {
+                      updateSlideSteps(slideStepsNum);
+                      updateProgressStep(slideStepsNum);
+                      callback(slideStepsNum)
+                  }
+                  return
+              })
+          }
+      }
+  
+      function updateSlideSteps(slideStepsNum) {
+          slideSteps.forEach(function (slideStep, i) {
+              slideStep.classList.contains('slide-step-active') && slideStep.classList.remove(
+              'slide-step-active');
+          })
+  
+          // on ajoute la class 'form-step-active' au slideSteps[slideStepNum+1]
+          slideSteps[slideStepsNum].classList.add('slide-step-active');
+      }
+  
+  
+      function updateProgressStep(slideStepsNum) {
+          progressSteps.forEach(function (progressStep, idx) {
+              if (idx < slideStepsNum + 1) {
+                  progressStep.classList.add('progress-step-active');
+              } else {
+                  progressStep.classList.remove('progress-step-active');
+              }
+          })
+      }
+  
+  
+      function callback(i) {
+  
+          if (i === 1) {
+              clickCount = 0;
+              insertContent(quizzRse[0].question, quizzRse[0].reponse, quizzRse[0].enc, i);
+          } else if (i === 2) {
+              clickCount = 0;
+              insertContent(quizzRse[1].question, quizzRse[1].reponse, quizzRse[1].enc, i);
+          } else if (i === 3) {
+              clickCount = 0;
+              insertContent(quizzRse[2].question, quizzRse[2].reponse, quizzRse[2].enc, i);
+          } else if (i === 4) {
+              clickCount = 0;
+              insertContent(quizzRse[3].question, quizzRse[3].reponse, quizzRse[3].enc, i);
+          }
+  
+      }
+  
+      function addAttr(dataSelected, dataNoSelected, itemSeleted, itemNoSeleted, className) {
+          itemSeleted.setAttribute('data-rep', dataSelected);
+  
+          itemNoSeleted.setAttribute('data-rep', dataNoSelected);
+          itemNoSeleted.className = className;
+      }
+  
+      function insertContent(q, r, e, i) {
+          var wrap = slideSteps[i].querySelector('.slide-step_wrap-content');
+  
+  
+          if (wrap) {
+              var contentHtml = '<div class="slide-step_number">' + i + '</div>'
+              contentHtml += '<h2>' + q + '</h2>'
+              contentHtml += '<ul class="slide-step_listChoix" id="slide-step_lc' + i +
+                  '"><li data-value="0">Vrai</li><li data-value="1">Faux</li></ul>'
+              contentHtml += '<span id="slide-step_text"></span>'
+              contentHtml += '<p id="slide-step_detail"></p>'
+              wrap.innerHTML = contentHtml;
+          }
+  
+  
+          var dataList = slideSteps[i].querySelector('#slide-step_lc' + i + '');
+          var txt = slideSteps[i].querySelector('#slide-step_text');
+          var detail = slideSteps[i].querySelector('#slide-step_detail');
+          var btn = slideSteps[i].querySelector('.slide-wrap_btn button');
+          var lesLi = dataList.querySelectorAll('li');
+  
+          // clickCount = 0;
+  
+          if (contentHtml && i > 0) {
+  
+              for (let index = 0; index < lesLi.length; index++) {
+                  const element = lesLi[index];
+  
+  
+                  element.addEventListener('click', function () {
+  
+                      btn.classList.remove('slide-step_btn-none');
+                      btn.disabled = false;
+  
+                      if (clickCount === 0) {
+  
+                          var dataValue = parseInt(element.getAttribute('data-value'));
+                          dataList.setAttribute('data-click', true);
+  
+  
+                          var listItem = Array.prototype.slice.call(lesLi);
+  
+                          var itemNoSelected = listItem.filter(function (item) {
+                              return item !== element;
+                          })
+  
+                          if (dataValue === e) {
+                              txt.textContent = 'Bravo !';
+  
+                              element.className = 'slide-step_itemTrue';
+  
+                              addAttr(true, false, element, itemNoSelected[0], 'slide-step_itemNoSelected')
+  
+                          } else {
+                              txt.textContent = 'Pas tout à fait !';
+  
+                              addAttr(false, true, element, itemNoSelected[0], 'slide-step_itemTrue')
+                          }
+  
+                          detail.innerHTML = r;
+                      }
+                      clickCount++
+                  })
+  
+              }
+  
+          }
+  
+      }
+  
+      var quizzRse = [{
+              question: 'Investir dans un Fonds d’investissement<br> socialement  responsable (ISR) n’est pas rentable !',
+              reponse: 'Lorsqu’on investit dans des placements ISR, il ne s’agit pas de choisir entre rentabilité et responsabilité.<br> Leur différence réside avant tout dans la prise en compte de critères supplémentaires qui sont d’ordre sociaux, environnementaux et éthiques.<br> Lorsqu’on compare les performances d’indices avec et sans ces critères, on observe des performances similaires.',
+              enc: 1
+          },
+          {
+              question: 'Il n’y a pas de produits <br>d’investissement ou de services<br> responsables dédiés aux jeunes',
+              reponse: 'Si nous ne proposons pas de produits d’investissement spécifiquement dédiés aux jeunes, rien ne vous empêche de commencer à epagner tôt avec par exemple le Livret Jeune, le Livret de développement durable et solidaire, ou choisir de contribuer au financement des énergies renouvelables avec Lumo (dès 50 euros). De plus, sur le plan social, nous avons développé une gamme de produits et services dédiés aux jeunes pour leur faciliter l’accès à l’emploi, le financement des études ou du permis et ainsi de les accompagner dans les étapes importantes de leur vie',
+              enc: 0
+          },
+          {
+              question: 'Pour avoir un impact Écologique et <br> Social, il faut verser des sommes<br> importantes',
+              reponse: 'Il existe des solutions accessibles à tous et pour tous les budgets.<br> Service épargne solidaire, Carte caritative, plateforme Lumo, Cashback Solidaire, de nombreux produits Société Générale vous permettent d’agir au quotidien. Autant de moyens de donner du sens à votre épargne en contribuant à des actions solidaires ou environnementales.',
+              enc: 1
+          },
+          {
+              question: 'La banque ne vise que la rentabilité',
+              reponse: 'Société Générale vise la rentabilité, gage de durabilité, mais elle privilégie aussi une approche plus globale de la performance, en considérant également les critères extrafinanciers des produits et services qu’elle propose : sociaux, environnementaux et de gouvernance.',
+              enc: 1
+          }
+      ];
+  </script>
+</body>
+</html>
