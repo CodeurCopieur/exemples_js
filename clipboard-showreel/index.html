@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://particuliers.hml.societegenerale.fr/static/Resources/stylesheets/common/swiper-4.5.0.min.css?03092021">
+  <link rel="stylesheet" href="https://particuliers.hml.societegenerale.fr/static/Resources/stylesheets/avenir/avenir.css?13052022">
+  <link rel="stylesheet" href="https://particuliers.hml.societegenerale.fr/static/Resources/stylesheets/avenir/avenir-custom.css?3110">
+  <link rel="stylesheet" href="https://particuliers.hml.societegenerale.fr/static/Resources/stylesheets/avenir/tailwind.css?25032022">
+  <style>
+    .showreel-nav {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+      display: inline-flex;
+      padding: 1rem;
+      background-color: #fff;
+    }
+    .showreel-nav-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .showreel-nav-item {
+      display: block;
+    }
+    .showreel-nav-item a {
+      display: block;
+      text-decoration: none;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      color: rgb(1, 0, 53);
+    }
+
+
+    .di-clipboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      padding-right: 0.5rem;
+      padding-left: 1rem;
+      border: solid #dee2e6;
+      border-width: 1px 0;
+      background-color: rgb(222, 226, 230);
+    }
+
+    .di-clipboard small {
+      font-size: 1.5rem;
+    }
+
+    .di-clipboard button {
+      cursor: pointer;
+      border: none;
+      margin-left: 1rem;
+      padding: 0;
+      background: rgba(9, 30, 66, 0.08);
+      transition: background .3s;
+    }
+
+    .di-clipboard button svg {
+      pointer-events: none;
+      color: #fff;
+    }
+
+    .di-clipboard button.active {
+      background-color: #04AA6D;
+    }
+
+    .component__tooltip {
+      background-color: #010035;
+      padding: 6px 12px;
+      font-size: 1.5rem;
+      color: #fff;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 1rem;
+
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .3s, transform .3s, border-radius .3s;
+    }
+    .component__tooltip.visible {
+      opacity: 1;
+      border-radius: 3px;
+      transform: translateY(0);
+    }
+
+    .component__tooltip::after {
+      content: '';
+      position: absolute;
+
+      top: 100%;
+      left: 50%;
+
+      margin-left: -6px;
+
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #010035;
+    }
+
+  </style>
+
+  </head>
+<body style="padding: 10rem 0;">
+  
+  <section class="stl_section stl_section--hero stl_section--hero-home">
+    <div class="stl_layout" style="background-color: #010035">
+      <div class="stl_grid_row">
+        <div class="stl_grid_col stl_grid_col-xs-12 stl_grid_col-xl-5 stl_grid_col--visual">
+          <picture>
+            <source srcset="/static/Resources/img/visu01-2x.webp" media="(max-width: 1023px)" type="image/webp" />
+            <source srcset="/static/Resources/img/visu01-1x.webp" media="(min-width: 1024px)" type="image/webp" />
+            <source srcset="/static/Resources/img/visu01-1x.jpg" media="(min-width: 1024px)" type="image/jpeg" />
+            <img src="/static/Resources/img/visu01-1x.jpg" width="600" height="400" alt="" />
+          </picture>
+        </div>
+        <div class="stl_grid_col stl_grid_col-xs-12 stl_grid_col-xl-7 stl_grid_col--content">
+          <div class="hero_container">
+            <div>
+              <span class="stl_tag" style="color: #010035; background-color: #fff">Exclu web</span><span class="stl_tag stl_tag-no-bg" style="color: #fff">Jusqu'au 31 décembre</span>
+              <h1 class="stl_title stl_title--1" style="color: #fff">
+                Pour commencer, <br />on vous offre
+                <span class="nowrap"
+                  >t<span class="moving_line moving_line-white">est<sup>1</sup></span></span
+                >
+              </h1>
+              <p class="stl_baseline" style="color: #fff">Gagnez du temps<sup>1</sup>, ouvrez en ligne votre premier compte bancaire et profitez de 80&nbsp;€ offerts.</p>
+              <a href="#" class="stl_btn stl_btn--primary stl_btn--md" onclick="bddfTms.trackEvent(this,'click_auto_promo',{ ad_click_adid : 540, ad_click_format : 'xxxxxx'});">
+                <span>En profiter</span>
+              </a>
+            </div>
+            <p class="stl_legal-notices" style="color: #fff">(1) Offre soumise à condition</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stl_section stl_section--on-banner">
+    <div class="stl_layout">
+      <div class="stl_grid_row">
+        <div class="stl_grid_col stl_grid_col-xs-12 stl_grid_col-md-6">
+          <a href="#" class="stl_card stl_card--prospect">
+            <div class="stl_card-cover">
+              <picture>
+                <source srcset="/static/Resources/img/card-prospect-1-2x.webp" media="(max-width: 1024px)" type="image/webp" />
+                <source srcset="/static/Resources/img/card-prospect-1-1x.webp" media="(min-width: 1025px)" type="image/webp" />
+                <source srcset="/static/Resources/img/card-prospect-1-1x.jpg" media="(min-width: 1025px)" type="image/jpeg" />
+                <img src="/static/Resources/img/card-prospect-1-1x.jpg" alt="" />
+              </picture>
+            </div>
+            <div class="stl_card-body">
+              <div class="stl_card--prospect-content">
+                <span class="stl_tag stl_tag--color-2">Crédit</span>
+                <h2 class="stl_title stl_title--2">Démarrez les études sur de bonnes bases&nbsp;!</h2>
+              </div>
+              <div class="stl_btn stl_btn--secondary stl_btn--sm">
+                <span>Découvrir</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="stl_grid_col stl_grid_col-xs-12 stl_grid_col-md-6">
+          <a href="#" class="stl_card stl_card--prospect">
+            <div class="stl_card-cover">
+              <picture>
+                <source srcset="/static/Resources/img/card-prospect-2-2x.webp" media="(max-width: 1024px)" type="image/webp" />
+                <source srcset="/static/Resources/img/card-prospect-2-1x.webp" media="(min-width: 1025px)" type="image/webp" />
+                <source srcset="/static/Resources/img/card-prospect-2-1x.jpg" media="(min-width: 1025px)" type="image/jpeg" />
+                <img src="/static/Resources/img/card-prospect-2-1x.jpg" alt="" />
+              </picture>
+            </div>
+            <div class="stl_card-body">
+              <div class="stl_card--prospect-content">
+                <span class="stl_tag stl_tag--color-2">Assurances</span>
+                <h2 class="stl_title stl_title--2" style="color: #fff">Vous prévoyez de déménager&nbsp;?</h2>
+              </div>
+              <div class="stl_btn stl_btn--secondarylight stl_btn--sm">
+                <span>Découvrir</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./index01.js"></script>
+  <!-- <script src="./index02.js"></script> -->
+</body>
+</html>

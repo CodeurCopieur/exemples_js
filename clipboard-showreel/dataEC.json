@@ -1,0 +1,20 @@
+{
+  "Components": [
+      {
+          "nom" : "Hero banner - protect emotion 1",
+          "id": "caf7f22cb8532810VgnVCM1000000ae1c6c0RCRD"
+      },
+      {
+          "nom": "Hero banner Fiche produit",
+          "id": "7211112d81f32810VgnVCM1000000ae1c6c0RCRD"
+      },
+      {
+          "nom": "Banniere generique - protect emotion 1",
+          "id": "3ef7f22cb8532810VgnVCM1000000ae1c6c0RCRD"
+      },
+      {
+          "nom": "Carte hp client - protect emotion 1",
+          "id": "b108f7170f532810VgnVCM1000000ae1c6c0RCRD"
+      }
+  ]
+}
